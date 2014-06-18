@@ -32,6 +32,7 @@ public class FrontController extends HttpServlet {
 		logger.debug("Method : {}, Request URI : {}", req.getMethod(), requestUri);
 		
 		Controller controller = rm.findController(urlExceptParameter(req.getRequestURI()));
+		logger.debug(controller.toString());
 		String viewName;
 		try {
 			viewName = controller.execute(req, resp);
@@ -45,8 +46,6 @@ public class FrontController extends HttpServlet {
 
 	void movePage(HttpServletRequest req, HttpServletResponse resp, String viewName) throws ServletException, IOException {
 		if (viewName.startsWith(DEFAULT_API_PREFIX)) {
-			logger.debug("api: " + req.getAttribute("questions").toString());
-			
 			return;
 		}
 		
