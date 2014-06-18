@@ -40,7 +40,7 @@ public class ApiListController implements Controller {
 			logger.error(e.getMessage(), e);
 		}
 		finally {
-			// out.close();
+			 out.close();
 		}
 		
 		return "api";
