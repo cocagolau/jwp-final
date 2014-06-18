@@ -1,7 +1,5 @@
 package next.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,15 +7,16 @@ import next.dao.QuestionDao;
 import next.model.Question;
 import core.mvc.Controller;
 
-public class ListController implements Controller {
+public class SaveController implements Controller {
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		QuestionDao questionDao = new QuestionDao();
-		List<Question> questions;
 		
-		questions = questionDao.findAll();
-		request.setAttribute("questions", questions);
-		return "list.jsp";
+		Question question = new Question(request.getParameter("writer"), request.getParameter("title"), request.getParameter("contents"));
+		questionDao.insert(question);
+		
+		return "redirect:/list.next";
 	}
+
 }

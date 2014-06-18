@@ -12,15 +12,16 @@ import next.model.Question;
 import core.mvc.Controller;
 
 public class ShowController implements Controller {
-	private QuestionDao questionDao = new QuestionDao();
-	private AnswerDao answerDao = new AnswerDao();
-	private Question question;
-	private List<Answer> answers;
-	
+
 	@Override
-	public String execute(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		long questionId = Long.parseLong(request.getParameter("questionId"));
+		
+		QuestionDao questionDao = new QuestionDao();
+		AnswerDao answerDao = new AnswerDao();
+		Question question;
+		List<Answer> answers;
+		
 		question = questionDao.findById(questionId);
 		answers = answerDao.findAllByQuestionId(questionId);
 		request.setAttribute("question", question);

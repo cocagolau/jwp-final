@@ -35,6 +35,8 @@ public class FrontController extends HttpServlet {
 		String viewName;
 		try {
 			viewName = controller.execute(req, resp);
+			logger.debug("viewName: " + viewName);
+			
 		} catch (Exception e) {
 			throw new ServletException(e.getMessage());
 		}
