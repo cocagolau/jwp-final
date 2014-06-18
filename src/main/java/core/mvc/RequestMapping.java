@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import next.controller.AddAnswerController;
+import next.controller.ApiListController;
 import next.controller.ListController;
 import next.controller.SaveController;
 import next.controller.ShowController;
@@ -17,6 +18,7 @@ public class RequestMapping {
 	
 	public void initMapping() {
 		mappings.put("/list.next", new ListController());
+		mappings.put("/api/list.next", new ApiListController());
 		mappings.put("/show.next", new ShowController());
 		mappings.put("/save.next", new SaveController());
 		mappings.put("/api/addanswer.next", new AddAnswerController());

@@ -43,9 +43,10 @@ public class FrontController extends HttpServlet {
 		movePage(req, resp, viewName);
 	}
 
-	void movePage(HttpServletRequest req, HttpServletResponse resp,
-			String viewName) throws ServletException, IOException {
+	void movePage(HttpServletRequest req, HttpServletResponse resp, String viewName) throws ServletException, IOException {
 		if (viewName.startsWith(DEFAULT_API_PREFIX)) {
+			logger.debug("api: " + req.getAttribute("questions").toString());
+			
 			return;
 		}
 		
@@ -63,7 +64,6 @@ public class FrontController extends HttpServlet {
 		if (index > 0) {
 			return forwardUrl.substring(0, index);
 		}
-		
 		return forwardUrl;
 	}
 }

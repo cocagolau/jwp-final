@@ -19,5 +19,6 @@ public class ForwardController implements Controller {
 		}
 		return forwardUrl;
 	}
+	
 
 }

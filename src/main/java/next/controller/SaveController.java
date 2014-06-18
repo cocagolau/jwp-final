@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import next.dao.QuestionDao;
 import next.model.Question;
 import core.mvc.Controller;
+import core.mvc.ModalAndView;
 
 public class SaveController implements Controller {
 	
@@ -18,5 +19,5 @@ public class SaveController implements Controller {
 		
 		return "redirect:/list.next";
 	}
-
+	
 }
